@@ -1,0 +1,48 @@
+nav.navigation {
+  background-color: rgb(12, 85, 161);
+  color:white;
+  margin-bottom: 0px;
+  border: 0px;
+}
+a, a:hover, a:focus, a:visited {
+  color:white;
+}
+/* Override bootstrap */
+.navbar-default .navbar-brand {
+  color:white;
+}
+
+.navbar-default .navbar-brand:hover {
+  color:white;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color:white;
+}
+
+.navbar-default .navbar-nav > .active > a {
+  color:white;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #FFF;
+}
+
+.navbar-default .navbar-toggle {
+    border:0px;
+    color: white;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #FFF;
+    border-radius: 0px;
+    color: white;
+}
+
+.navbar-default .navbar-toggle:focus {
+    background-color: #4A84C0;
+}
+
+.navbar-default .navbar-toggle:hover {
+    background-color: #4A84C0;
+}

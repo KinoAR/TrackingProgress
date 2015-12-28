@@ -1,0 +1,11 @@
+ul.footer-links {
+  width:30%;
+  float: right;
+  display: inline-block;
+  list-style: none;
+}
+li.footer-links {
+  float: right;
+  display: block;
+  margin-right: 5px;
+}

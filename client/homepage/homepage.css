@@ -1,0 +1,22 @@
+.homepage-main {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.homepage-header {
+  background-color: rgba(74, 132, 192, 1);
+  color:white;
+}
+.homepage-content {
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #ffffff;
+  color: black;
+}
+
+.homepage-footer {
+  background-color: rgba(9, 64, 122, 1);
+  color: rgb(232,232,232);
+}
+

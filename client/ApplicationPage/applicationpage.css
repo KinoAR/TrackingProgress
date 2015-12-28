@@ -1,0 +1,14 @@
+div.application-progress-bar {
+  background-color: rgba(115, 163, 212, 1);
+  min-height: 75px;
+}
+div.application-progress {
+  background-color: rgba(74, 132, 192, 1);
+  color:white;
+}
+
+div.application-deadline {
+  background-color: rgba(74, 132, 192, 1);
+  color:white;
+  min-height: 75px;
+}
