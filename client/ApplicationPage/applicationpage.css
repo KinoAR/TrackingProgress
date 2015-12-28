@@ -1,14 +1,45 @@
 div.application-progress-bar {
   background-color: rgba(115, 163, 212, 1);
   min-height: 75px;
+  padding-right: 0px;
+  padding-left:0px;
 }
-div.application-progress {
-  background-color: rgba(74, 132, 192, 1);
-  color:white;
+
+div.application-progression-bar {
+  height: 75px;
+  border-radius: 0px;
+  margin-bottom: 0px;
 }
 
 div.application-deadline {
   background-color: rgba(74, 132, 192, 1);
   color:white;
   min-height: 75px;
+}
+
+div.application-progress {
+  background-color: rgba(74, 132, 192, 1);
+  color:white;
+  min-height: 650px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+ul.application-progress {
+  padding-left: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  width: 100%;
+  list-style-type: none;
+}
+
+button.application-progress {
+  border-radius: 0px;
+  background-color: rgb(12, 85, 161);
+}
+div.application-content {
+  background-color: white;
+  color:black;
+  padding-top: 15px;
+  min-height: 650px;
 }

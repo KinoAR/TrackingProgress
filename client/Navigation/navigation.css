@@ -3,6 +3,7 @@ nav.navigation {
   color:white;
   margin-bottom: 0px;
   border: 0px;
+  border-radius:0px;
 }
 a, a:hover, a:focus, a:visited {
   color:white;

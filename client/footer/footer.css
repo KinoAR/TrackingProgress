@@ -9,3 +9,7 @@ li.footer-links {
   display: block;
   margin-right: 5px;
 }
+div.footer {
+  background-color: rgba(9, 64, 122, 1);
+  color: rgb(232,232,232);
+}
