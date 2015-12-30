@@ -6,6 +6,11 @@ nav.navigation {
   border: 0px;
   border-bottom: 1px solid black;
   border-radius:0px;
+  padding-right: 15px;
+}
+ul.navigation {
+  min-width: 300px;
+  padding: 10px 10px;
 }
 a, a:hover, a:focus, a:visited {
   color:white;
