@@ -4,13 +4,20 @@ nav.navigation {
   color:white;
   margin-bottom: 0px;
   border: 0px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #0A284C;
   border-radius:0px;
   padding-right: 15px;
 }
 ul.navigation {
   min-width: 300px;
   padding: 10px 10px;
+}
+
+li.navigation {
+  padding-top: 15px;
+}
+span.navigation-user {
+  background-color: #4CAD4C;
 }
 a, a:hover, a:focus, a:visited {
   color:white;

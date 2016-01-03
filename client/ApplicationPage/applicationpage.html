@@ -3,10 +3,10 @@
     <div class="row">
       {{> navigation }}
     </div>
-    <div class="row">
+    <div class="application-top row">
       <div class="application-progress-bar col-xs-8">
         <div id="progress-bar" class="application-progression-bar progress">
-          <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;">
+          <div class="app-progress-bar progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;">
             0%
           </div>
         </div>
@@ -20,6 +20,11 @@
     </div>
     <div class="row">
       <div class="application-progress col-xs-4 text-center">
+      <!-- Add / Remove Project Buttons -->
+        <div class="btn-group btn-group-sm" role="group" aria-label="...">
+          <button type="button" id="application-add-project" class="btn btn-primary">Add Project</button>
+          <button type="button" id="application-remove-project" class="btn btn-primary">Remove Project</button>
+        </div>
         <h2> Projects </h2>
         <ul class="application-progress">
           <li> <button type="button" class="application-progress btn btn-primary btn-lg btn-block">Project 1</button></li>

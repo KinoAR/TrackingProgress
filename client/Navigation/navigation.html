@@ -19,6 +19,9 @@
         <li><a href="{{pathFor 'application'}}">Projects</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+      {{#if currentUser}}
+      <li class="navigation"><span class="navigation-user label label-success"> {{ currentUser.username}} </span></li>
+      {{else}}
         <li>
           <div class="btn-group btn-group-sm" role="group" aria-label="...">
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></button>
@@ -35,8 +38,8 @@
               </ul>
             </div>
           </div>
- 
         </li>
+        {{/if}}
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

@@ -1,3 +1,7 @@
+div.application-top {
+  border-bottom: 1px solid #474748;
+}
+
 div.application-progress-bar {
   background-color: rgba(115, 163, 212, 1);
   min-height: 75px;
@@ -9,6 +13,10 @@ div.application-progression-bar {
   height: 90px;
   border-radius: 0px;
   margin-bottom: 0px;
+}
+div.app-progress-bar {
+  background-color: #45C05D;
+  background: linear-gradient(to bottom, #00BA26, #07D12E ,#00BA26);
 }
 
 div.application-deadline {
@@ -27,6 +35,7 @@ ul.application-deadline {
 
 div.application-progress {
   background-color: rgba(12, 85, 161, 1);
+  border-right: 1px solid #0A284C;
   background: linear-gradient(to bottom, rgba(9, 64, 122, 1), rgba(12, 85, 161, 1) );
   color:white;
   min-height: 650px;
