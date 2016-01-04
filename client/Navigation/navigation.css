@@ -22,6 +22,10 @@ span.navigation-user {
 a, a:hover, a:focus, a:visited {
   color:white;
 }
+
+button.logout {
+  height: 17px;
+}
 /* Override bootstrap */
 .navbar-default .navbar-brand {
   color:white;

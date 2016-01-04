@@ -1,5 +1,6 @@
 <template name="application">
   <div class="application-main container-fluid">
+    {{> addProject }}
     <div class="row">
       {{> navigation }}
     </div>
@@ -14,7 +15,9 @@
       <div class="application-deadline col-xs-4">
         <ul class="application-deadline">
           <li> Current Date: {{ formatDate }}</li>
-          <li> Deadline: {{ formatDate '1/15/2016' }} </li>
+          {{#with currentProject}}  
+            <li> Deadline: {{ deadlineDate }} </li>
+          {{/with }}
         </ul>
       </div>
     </div>
@@ -27,9 +30,9 @@
         </div>
         <h2> Projects </h2>
         <ul class="application-progress">
-          <li> <button type="button" class="application-progress btn btn-primary btn-lg btn-block">Project 1</button></li>
-          <li> <button type="button" class="application-progress btn btn-primary btn-lg btn-block">Project 2</button> </li>
-          <li> <button type="button" class="application-progress btn btn-primary btn-lg btn-block">Project 3</button></li>
+          {{#each currentProjects }}
+          <li> <button type="button" class="application-project-button application-progress btn btn-primary btn-lg btn-block" value="{{name}}">{{ name }}</button></li>
+          {{/each}}
         </ul>
       </div>
       <div class="application-content col-xs-8">
