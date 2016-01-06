@@ -1,5 +1,7 @@
 Template.application.onRendered(function(){
   Session.setDefault("projectName", null);
+  Session.setDefault("projectId", null);
+  Session.setDefault("taskComplete", false);
 });
 Template.application.events({
   'click #application-add-project' : function(event, template) {
@@ -19,6 +21,8 @@ Template.application.events({
     //Get the value of the button
     clickedElement = event.currentTarget;
     Session.set("projectName", clickedElement.value);
+    let project = Projects.findOne({name:Session.get("projectName")}, {fields: {_id:1}});
+    Session.set("projectId", project._id);
   },
   'click #application-add-task' : function(event, template) {
     event.preventDefault();
@@ -31,6 +35,20 @@ Template.application.events({
     //Open prompt to remove task
     let removeTask = template.find(".remove-task-main");
     removeTask.style.display ="block";
+  },
+  'change .taskCheck' : function(event, template) {
+    let taskName = this.name;
+    let projectId = Session.get("projectId");
+    if(event.target.checked) {
+      Session.set("taskComplete", true);
+      let checked = Session.get("taskComplete");
+      Meteor.call('updateTask',projectId, taskName, checked);
+    }
+    else {
+      Session.set("taskComplete", false);
+      let checked = Session.get("taskComplete");
+      Meteor.call('updateTask',projectId, taskName, checked); 
+    }
   }
 });
 
@@ -45,5 +63,20 @@ Template.application.helpers({
     let currentProjectName = Session.get("projectName");
     let project = Projects.findOne({name: currentProjectName});
     return project;
+  },
+  'progress': function() {
+    if(Session.get("projectName") !== null){
+    let currentProjectName = Session.get("projectName");
+    let count = 0;
+    let currentProject = Projects.findOne({name: currentProjectName});
+    if(currentProject !== undefined){
+       currentProject.tasks.forEach(function(element){ 
+      if(element.complete){
+       count++;
+      }});
+      let progress = Math.floor((100 * (count / currentProject.tasks.length)));
+      return progress;
+    }
+    }
   }
 });
