@@ -1,6 +1,10 @@
 <template name="application">
   <div class="application-main container-fluid">
+    <!-- Prompts -->
     {{> addProject }}
+    {{> removeProject }}
+    {{> addTask }}
+    {{> removeTask }}
     <div class="row">
       {{> navigation }}
     </div>
@@ -36,34 +40,21 @@
         </ul>
       </div>
       <div class="application-content col-xs-8">
-        <div class="panel panel-primary">
-          <div class="panel-heading">Task Name</div>
-          <div class="panel-body">
-            <p> Task Description: </p>
-            <label>Complete: </label> <input type="checkbox" value="Task Complete"> 
-          </div>
+        <div class="application-tasks btn-group btn-group-sm" role="group" aria-label="...">
+            <button type="button" id="application-add-task" class="btn btn-primary">Add Task</button>
+            <button type="button" id="application-remove-task" class="btn btn-primary">Remove Task</button>
         </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">Task Name</div>
-          <div class="panel-body">
-            <p> Task Description: </p>
-            <label>Complete: </label> <input type="checkbox" value="Task Complete"> 
-          </div>
-        </div>
-         <div class="panel panel-primary">
-          <div class="panel-heading">Task Name</div>
-          <div class="panel-body">
-            <p> Task Description: </p>
-            <label>Complete: </label> <input type="checkbox" value="Task Complete"> 
-          </div>
-        </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">Task Name</div>
-          <div class="panel-body">
-            <p> Task Description: </p>
-            <label>Complete: </label> <input type="checkbox" value="Task Complete"> 
-          </div>
-        </div>
+        {{#with currentProject}} 
+          {{#each this.tasks}}
+            <div class="panel panel-primary">
+              <div class="panel-heading"> {{ name }}</div>
+              <div class="panel-body">
+                <p> Task Description: {{ description }} </p>
+                <label>Complete: {{ complete }} </label> <input type="checkbox" value="Task Complete"> 
+              </div>
+            </div>
+          {{/each}}
+        {{/with}}
       </div>
     </div>
     <div class="row">

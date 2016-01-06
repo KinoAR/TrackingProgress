@@ -61,3 +61,8 @@ div.application-content {
   padding-top: 15px;
   min-height: 650px;
 }
+
+div.application-tasks {
+  margin-bottom: 10px;
+  margin-top: -15px;
+}

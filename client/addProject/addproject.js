@@ -19,7 +19,7 @@ Template.addProject.events({
       tasks: [{
         name: taskName,
         description: taskDescription,
-        Complete: false
+        complete: false
       }]
     };
     Projects.insert(project);
