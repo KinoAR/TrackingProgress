@@ -51,7 +51,8 @@
           {{#each this.tasks}}
             <div class="panel panel-primary">
               <div class="panel-heading"> 
-                <i class="task-remove fa fa-times fa-1x" data-taskname="{{name}}"></i> {{ name }}
+                <i class="task-remove fa fa-times fa-1x" data-taskname="{{name}}" data-taskdescription="{{description}}"></i> 
+                {{ name }}
               </div>
               <div class="panel-body">
                 <p> Task Description: {{ description }} </p>

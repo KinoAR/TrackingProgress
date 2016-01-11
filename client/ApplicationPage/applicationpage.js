@@ -40,11 +40,13 @@ Template.application.events({
     event.preventDefault();
     event.stopPropagation();
     let clickedElement = event.target;
-    Projects.update({_id:Session.get("projectId")}, {$pull: {tasks: {name:clickedElement.dataset.taskname}}}, function(error, documents) {
-      if(error)
-        console.log(error);
-      else
-        console.log("Successfully updated:" + documents);
+    Projects.update({_id:Session.get("projectId")}, 
+      {$pull: {tasks: {name:clickedElement.dataset.taskname, description:clickedElement.dataset.taskdescription}}}, 
+      function(error, documents) {
+        if(error)
+          console.log(error);
+        else
+          console.log("Successfully updated:" + documents);
     });
   },
   'change .taskCheck' : function(event, template) {
