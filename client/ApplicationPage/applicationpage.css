@@ -1,0 +1,90 @@
+div.application-top {
+  border-bottom: 1px solid #474748;
+}
+
+div.application-progress-bar {
+  background-color: rgba(115, 163, 212, 1);
+  min-height: 75px;
+  padding-right: 0px;
+  padding-left:0px;
+}
+
+div.application-progression-bar {
+  height: 90px;
+  border-radius: 0px;
+  margin-bottom: 0px;
+}
+div.app-progress-bar {
+  background-color: #45C05D;
+  background: linear-gradient(to bottom, #00BA26, #07D12E ,#00BA26);
+}
+
+div.application-deadline {
+  background-color: rgba(74, 132, 192, 1);
+  background: linear-gradient(to bottom, rgba(74, 132, 192, 1), rgba(12, 85, 161, 1) );
+  color:white;
+  min-height: 90px;
+  padding-left: 2.5px;
+}
+
+ul.application-deadline {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  padding-left: 5px;
+  list-style-type: none;
+}
+
+div.application-progress {
+  background-color: rgba(12, 85, 161, 1);
+  border-right: 1px solid #0A284C;
+  background: linear-gradient(to bottom, rgba(9, 64, 122, 1), rgba(12, 85, 161, 1) );
+  color:white;
+  min-height: 700px;
+  max-height: 700px;
+  overflow:auto;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+ul.application-progress {
+  padding-left: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  width: 100%;
+  list-style-type: none;
+}
+div.application-btn-group > .btn {
+border-radius:0px;
+margin-left: 0px;
+}
+div.application-btn-group .btn + .btn {
+border-radius:0px;
+margin-left: 0px;
+}
+button.application-block-button {
+  width:100px;
+  border-radius: 0px;
+}
+button.application-progress {
+  border-radius: 0px;
+  background-color: rgb(12, 85, 161);
+  white-space: normal;
+}
+div.application-content {
+  background-color: white;
+  color:black;
+  padding-top: 15px;
+  min-height: 700px;
+  overflow: auto;
+  max-height: 700px;
+}
+
+div.application-tasks {
+  margin-bottom: 10px;
+  margin-top: -15px;
+}
+
+/* Hover */
+i.fa-times:hover {
+  color: rgba(255, 183, 0, 1);
+}
