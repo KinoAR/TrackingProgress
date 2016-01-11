@@ -24,6 +24,11 @@ Template.application.events({
     let project = Projects.findOne({name:Session.get("projectName")}, {fields: {_id:1}});
     Session.set("projectId", project._id);
   },
+  'click #application-edit-collaborators': function(event, template) {
+    event.preventDefault();
+    let editCollaborators = template.find(".edit-collaborators-main");
+    editCollaborators.style.display = "block";
+  },
   'click #application-add-task' : function(event, template) {
     event.preventDefault();
     //Open up prompt to create a task

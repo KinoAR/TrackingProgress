@@ -3,6 +3,7 @@
     <!-- Prompts -->
     {{> addProject }}
     {{> removeProject }}
+    {{> editCollaborators }}
     {{> addTask }}
     {{> removeTask }}
     <!-- Navigation -->
@@ -44,8 +45,9 @@
       </div>
       <div class="application-content col-xs-8">
         <div class="application-tasks btn-group btn-group-xs" role="group" aria-label="...">
-            <button type="button" id="application-add-task" class="btn btn-primary">Add Task</button>
-            <button type="button" id="application-remove-task" class="btn btn-primary">Remove Task</button>
+          <button type="button" id="application-edit-collaborators" class="btn btn-primary">Edit Collaborators</button>
+          <button type="button" id="application-add-task" class="btn btn-primary">Add Task</button>
+          <button type="button" id="application-remove-task" class="btn btn-primary">Remove Task</button>
         </div>
         {{#with currentProject}} 
           {{#each this.tasks}}
