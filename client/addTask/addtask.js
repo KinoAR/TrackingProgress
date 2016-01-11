@@ -1,6 +1,7 @@
 Template.addTask.events({
   'click .submit': function(event, template) {
     event.preventDefault();
+    let form = template.find(".application-forms");
     let taskName = template.find("#add-task-task-name").value;
     let taskDescription = template.find("#add-task-task-description").value;
     let userId = Meteor.userId();
@@ -15,5 +16,6 @@ Template.addTask.events({
     let project = Projects.findOne({name:Session.get("projectName")}, {fields: {_id: 1} });
     Projects.update({_id:project._id}, {$push: {tasks: task}});
     addTask.style.display = "none";
+    form.reset();
   }
 });

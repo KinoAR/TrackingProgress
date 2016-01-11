@@ -1,11 +1,12 @@
 <template name="addProject">
   <div class="add-project-main">
+    {{> closeForm }}
     <div class="row">
       <div class="col-xs-12">
       <h3> Add Project </h3>
       </div>
       <div class="col-xs-12">
-        <form>
+        <form class="application-forms">
           <div class="form-group">
             <label class="sr-only" for="Project Name"> Project Name </label>
             <input type="text" class="form-control" id="add-project-project-name" placeholder="Project Name">

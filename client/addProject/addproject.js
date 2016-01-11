@@ -1,6 +1,7 @@
 Template.addProject.events({
   'click .submit': function(event, template) {
     event.preventDefault();
+    let form = template.find(".application-forms");
     let projectName = template.find("#add-project-project-name").value;
     let projectDescription = template.find("#add-project-project-description").value;
     let projectDeadline = template.find("#add-project-project-deadline").value;
@@ -24,5 +25,6 @@ Template.addProject.events({
     };
     Projects.insert(project);
     addProject.style.display = "none";
+    form.reset();
   }
 });

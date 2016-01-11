@@ -1,5 +1,6 @@
 Template.removeProject.events({
   'click .submit': function(event, template) {
+    let form = template.find(".application-forms");
     event.preventDefault();
     let projectName = template.find("#remove-project-project-name").value;
     let userId = Meteor.userId();
@@ -16,6 +17,7 @@ Template.removeProject.events({
         console.log("Successfully removed:" + projectName);
       });
       removeProject.style.display = "none";
+      form.reset();
     }   
   }
 });
