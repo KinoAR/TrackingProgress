@@ -1,13 +1,19 @@
 ul.footer-links {
   width:30%;
   float: right;
+  padding-left: 0px;
   display: inline-block;
   list-style: none;
 }
 li.footer-links {
   float: right;
   display: block;
-  margin-right: 5px;
+  margin-right: 10px;
+}
+footer.footer {
+  position:fixed;
+  bottom:0;
+  width: 100%;
 }
 div.footer {
   padding-top: 10px;

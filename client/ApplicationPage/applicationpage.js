@@ -83,6 +83,8 @@ Template.application.helpers({
     return project;
   },
   'progress': function() {
+    if(Session.get("projectName") == null)
+      return 0;
     if(Session.get("projectName") !== null){
     let currentProjectName = Session.get("projectName");
     let count = 0;
