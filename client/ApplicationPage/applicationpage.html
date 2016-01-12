@@ -12,15 +12,15 @@
       <div class="application-progress-bar col-xs-8">
         <div id="progress-bar" class="application-progression-bar progress">
           <div class="app-progress-bar progress-bar" role="progressbar" aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;width:{{ progress }}%;">
-            {{ progress }}
+            <h1> {{ progress }}% </h1>
           </div>
         </div>
       </div>
       <div class="application-deadline col-xs-4">
         <ul class="application-deadline">
-          <li><span class="label label-success"> Current Date: {{ formatDate }}</span></li>
+          <li><h4>Date: {{ formatDate }}</h4></li>
           {{#with currentProject}}  
-            <li><span class="label label-success"> Deadline: {{ deadlineDate }} </span></li>
+            <li><h4> Deadline: {{ deadlineDate }}</h4></li>
           {{/with }}
         </ul>
       </div>
@@ -28,7 +28,7 @@
     <div class="row">
       <div class="application-progress col-xs-4 text-center">
       <!-- Add / Remove Project Buttons -->
-        <div class="application-btn-group btn-group btn-group-xs" role="group" aria-label="...">
+        <div class="application-btn-group btn-group btn-group-md" role="group" aria-label="...">
           <button type="button" id="application-add-project" class="application-block-button btn btn-primary">
             Add Project
           </button>
@@ -44,10 +44,16 @@
         </ul>
       </div>
       <div class="application-content col-xs-8">
-        <div class="application-tasks btn-group btn-group-xs" role="group" aria-label="...">
-          <button type="button" id="application-edit-collaborators" class="btn btn-primary">Edit Collaborators</button>
-          <button type="button" id="application-add-task" class="btn btn-primary">Add Task</button>
-          <button type="button" id="application-remove-task" class="btn btn-primary">Remove Task</button>
+        <div class="application-btn-group application-tasks btn-group btn-group-md" role="group" aria-label="...">
+          <button type="button" id="application-edit-collaborators" class="application-block-button btn btn-primary">
+            Edit Collaborators
+          </button>
+          <button type="button" id="application-add-task" class="application-block-button btn btn-primary">
+            Add Task
+          </button>
+          <button type="button" id="application-remove-task" class="application-block-button btn btn-primary">
+            Remove Task
+          </button>
         </div>
         {{#with currentProject}} 
           {{#each this.tasks}}
