@@ -12,3 +12,10 @@ div.edit-collaborators-main {
   border: 1px solid black;
   display:none;
 }
+
+div.collaborator-list {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  overflow: auto;
+  max-height: 150px;
+}

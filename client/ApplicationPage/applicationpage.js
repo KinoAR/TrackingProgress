@@ -2,6 +2,7 @@ Template.application.onRendered(function(){
   Session.setDefault("projectName", null);
   Session.setDefault("projectId", null);
   Session.setDefault("taskComplete", false);
+  Session.setDefault("userInput", null);
 });
 Template.application.events({
   'click #application-add-project' : function(event, template) {
@@ -74,7 +75,7 @@ Template.application.helpers({
   'currentProjects' : function() {
     //Return Projects this user is attached to
     let currentUserId = Meteor.userId();
-    let projects = Projects.find({projectCreator:currentUserId});
+    let projects = Projects.find({$or:[{collaborators:{name:Meteor.user().username}}, {projectCreator:currentUserId}]});
     return projects;
   },
   'currentProject': function() {

@@ -21,10 +21,10 @@
         <!-- Add / Remove Project Buttons -->
         <h2> Projects </h2>
         <div class="application-btn-group btn-group btn-group-xs" role="group" aria-label="...">
-          <button type="button" id="application-add-project" class="application-block-button btn btn-primary">
+          <button type="button" id="application-add-project" class="application-block-btn btn btn-primary">
             Add Project
           </button>
-          <button type="button" id="application-remove-project" class="application-block-button btn btn-primary">
+          <button type="button" id="application-remove-project" class="application-block-btn btn btn-primary">
             Remove Project
           </button>
         </div>
@@ -39,16 +39,16 @@
     </div>
     <div class="application-middle row">
       <div class="application-progress hidden-xs col-sm-4 col-md-4 text-center">
+      <h2> Projects </h2>
       <!-- Add / Remove Project Buttons -->
         <div class="application-btn-group btn-group btn-group-md" role="group" aria-label="...">
-          <button type="button" id="application-add-project" class="application-block-button btn btn-primary">
+          <button type="button" id="application-add-project" class="application-block-btn btn btn-primary">
             Add Project
           </button>
-          <button type="button" id="application-remove-project" class="application-block-button btn btn-primary">
+          <button type="button" id="application-remove-project" class="application-block-btn btn btn-primary">
             Remove Project
           </button>
         </div>
-        <h2> Projects </h2>
         <ul class="application-progress">
           {{#each currentProjects }}
           <li> <button type="button" class="application-project-button application-progress btn btn-primary btn-lg btn-block" value="{{name}}">{{ name }}</button></li>
@@ -65,7 +65,7 @@
         </div>
         <div class="application-btn-group application-tasks btn-group btn-group-md" role="group" aria-label="...">
           <button type="button" id="application-edit-collaborators" class="app-task-block-button btn btn-primary">
-            Edit Collaborators
+            Edit Partners
           </button>
           <button type="button" id="application-add-task" class="app-task-block-button btn btn-primary">
             Add Task

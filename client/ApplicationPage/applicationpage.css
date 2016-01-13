@@ -2,10 +2,12 @@ div.application-top {
   border-bottom: 1px solid #474748;
   background-color: rgb(151, 43, 193);
 }
+
 div.application-middle {
   min-height: 500px;
   max-height: 600px;
 }
+
 div.application-progress-bar {
   background-color: #ffffff;
   min-height: 50px;
@@ -31,6 +33,7 @@ div.app-progress-bar {
 div.app-progress-bar > h2 {
   margin-top: 10px;
 }
+
 div.application-deadline {
   background-color: rgba(74, 132, 192, 1);
   background: linear-gradient(to bottom, rgba(74, 132, 192, 1), rgba(12, 85, 161, 1) );
@@ -48,6 +51,7 @@ ul.application-deadline {
   padding-left: 5px;
   list-style-type: none;
 }
+
 div.application-project-list {
   background-color: rgba(12, 85, 161, 1);
   border-right: 1px solid #0A284C;
@@ -60,6 +64,7 @@ div.application-project-list {
   padding-left: 0px;
   padding-right: 0px; 
 }
+
 div.application-progress-list {
   overflow: auto;
   max-height: 50px;
@@ -83,36 +88,52 @@ ul.application-progress {
   width: 100%;
   list-style-type: none;
 }
+
+div.application-btn-group {
+  width: 100%;
+}
+
 div.application-btn-group > .btn {
-border-radius:0px;
-margin-left: 0px;
+  border-radius:0px;
+  margin-left: 0px;
 }
+
 div.application-btn-group .btn + .btn {
-border-radius:0px;
-margin-left: 0px;
+  border-radius:0px;
+  margin-left: 0px;
 }
+
 button.application-block-button {
   width:105px;
   border-radius: 0px;
 }
 
-div.application-btn-group > .btn {
-border-radius:0px;
-margin-left: 0px;
-}
-div.application-btn-group .btn + .btn {
-border-radius:0px;
-margin-left: 0px;
-}
-button.app-task-block-button {
-  width:150px;
+button.application-block-btn {
+  width:50%;
   border-radius: 0px;
 }
+
+div.application-btn-group > .btn {
+  border-radius:0px;
+  margin-left: 0px;
+}
+
+div.application-btn-group .btn + .btn {
+  border-radius:0px;
+  margin-left: 0px;
+}
+
+button.app-task-block-button {
+  width:33.3333%;
+  border-radius: 0px;
+}
+
 button.application-progress {
   border-radius: 0px;
   background-color: rgb(12, 85, 161);
   white-space: normal;
 }
+
 div.application-content {
   background-color: white;
   color:black;
@@ -124,9 +145,6 @@ div.application-content {
 div.application-tasks {
   margin-bottom: 10px;
   margin-top: -15px;
-  margin-left: -15px;
-  margin-right: -15px;
-
 }
 
 div.application-tasks-list {
@@ -134,7 +152,7 @@ div.application-tasks-list {
   margin-left: -10px;
   margin-right: -10px;
   padding-right: 10px; 
-  max-height: 500px;
+  max-height: 470px;
 }
 /* Hover */
 i.fa-times:hover {
