@@ -7,5 +7,6 @@ Template.navigation.events({
       else
         console.log("Logout success");
     })
+    Session.set("projectName",null);
   }
 });

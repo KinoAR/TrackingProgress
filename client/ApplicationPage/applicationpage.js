@@ -75,8 +75,11 @@ Template.application.helpers({
   'currentProjects' : function() {
     //Return Projects this user is attached to
     let currentUserId = Meteor.userId();
-    let projects = Projects.find({$or:[{collaborators:{name:Meteor.user().username}}, {projectCreator:currentUserId}]});
-    return projects;
+    let currentUser = Meteor.user();
+    if(currentUser !== null && typeof (currentUser) !== 'undefined' ) {
+      let projects = Projects.find({$or:[{collaborators:{name:currentUser.username}}, {projectCreator:currentUserId}]});
+      return projects;
+    }
   },
   'currentProject': function() {
     let currentProjectName = Session.get("projectName");

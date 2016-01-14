@@ -24,6 +24,7 @@ Template.addProject.events({
       }]
     };
     Projects.insert(project);
+    Session.set('projectName', project.name);
     addProject.style.display = "none";
     form.reset();
   }

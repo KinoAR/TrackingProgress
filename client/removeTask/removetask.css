@@ -4,7 +4,8 @@ div.remove-task-main {
   height: auto;
   position: absolute;
   top: 20%;
-  left: 45%;
+  left: 50%;
+  margin-left: -150px;
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
