@@ -3,50 +3,78 @@
     <!-- Prompts -->
     {{> addProject }}
     {{> removeProject }}
+    {{> editCollaborators }}
     {{> addTask }}
     {{> removeTask }}
     <!-- Navigation -->
     {{> navigation }}
     <div class="application-top row">
-      <div class="application-progress-bar col-xs-8">
-        <div id="progress-bar" class="application-progression-bar progress">
-          <div class="app-progress-bar progress-bar" role="progressbar" aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;width:{{ progress }}%;">
-            {{ progress }}
-          </div>
-        </div>
-      </div>
-      <div class="application-deadline col-xs-4">
+      <div class="application-deadline col-xs-4 col-sm-12 col-md-12 col-lg-12">
         <ul class="application-deadline">
-          <li><span class="label label-success"> Current Date: {{ formatDate }}</span></li>
+          <li><h4>Date: {{ formatDate }}</h4></li>
           {{#with currentProject}}  
-            <li><span class="label label-success"> Deadline: {{ deadlineDate }} </span></li>
+            <li><h4> Deadline: {{ deadlineDate }}</h4></li>
           {{/with }}
         </ul>
       </div>
-    </div>
-    <div class="row">
-      <div class="application-progress col-xs-4 text-center">
-      <!-- Add / Remove Project Buttons -->
+      <div class="application-project-list col-xs-8 hidden-md hidden-lg hidden-sm text-center">
+        <!-- Add / Remove Project Buttons -->
+        <h2> Projects </h2>
         <div class="application-btn-group btn-group btn-group-xs" role="group" aria-label="...">
-          <button type="button" id="application-add-project" class="application-block-button btn btn-primary">
+          <button type="button" id="application-add-project" class="application-block-btn btn btn-primary">
             Add Project
           </button>
-          <button type="button" id="application-remove-project" class="application-block-button btn btn-primary">
+          <button type="button" id="application-remove-project" class="application-block-btn btn btn-primary">
             Remove Project
           </button>
         </div>
-        <h2> Projects </h2>
+        <div class="application-progress-list">
+          <ul class="application-progress">
+            {{#each currentProjects }}
+            <li> <button type="button" class="application-project-button application-progress btn btn-primary btn-xs btn-block" value="{{name}}">{{ name }}</button></li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="application-middle row">
+      <div class="application-progress hidden-xs col-sm-4 col-md-4 text-center">
+      <h2> Projects </h2>
+      <!-- Add / Remove Project Buttons -->
+        <div class="application-btn-group btn-group btn-group-md" role="group" aria-label="...">
+          <button type="button" id="application-add-project" class="application-block-btn btn btn-primary">
+            Add Project
+          </button>
+          <button type="button" id="application-remove-project" class="application-block-btn btn btn-primary">
+            Remove Project
+          </button>
+        </div>
         <ul class="application-progress">
           {{#each currentProjects }}
           <li> <button type="button" class="application-project-button application-progress btn btn-primary btn-lg btn-block" value="{{name}}">{{ name }}</button></li>
           {{/each}}
         </ul>
       </div>
-      <div class="application-content col-xs-8">
-        <div class="application-tasks btn-group btn-group-xs" role="group" aria-label="...">
-            <button type="button" id="application-add-task" class="btn btn-primary">Add Task</button>
-            <button type="button" id="application-remove-task" class="btn btn-primary">Remove Task</button>
+      <div class="application-content col-md-8 col-sm-8 col-xs-12">
+        <div class="application-progress-bar col-xs-12">
+          <div id="progress-bar" class="application-progression-bar progress">
+            <div class="app-progress-bar progress-bar" role="progressbar" aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100" style="min-width: 3.2em;width:{{ progress }}%;">
+              <h2> {{ progress }}% </h2>
+            </div>
+          </div>
         </div>
+        <div class="application-btn-group application-tasks btn-group btn-group-md" role="group" aria-label="...">
+          <button type="button" id="application-edit-collaborators" class="app-task-block-button btn btn-primary">
+            Edit Partners
+          </button>
+          <button type="button" id="application-add-task" class="app-task-block-button btn btn-primary">
+            Add Task
+          </button>
+          <button type="button" id="application-remove-task" class="app-task-block-button btn btn-primary">
+            Remove Task
+          </button>
+        </div>
+        <div class="application-tasks-list">
         {{#with currentProject}} 
           {{#each this.tasks}}
             <div class="panel panel-primary">
@@ -66,6 +94,7 @@
             </div>
           {{/each}}
         {{/with}}
+        </div>
       </div>
     </div>
     <!-- Footer -->

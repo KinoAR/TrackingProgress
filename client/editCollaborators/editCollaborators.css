@@ -1,4 +1,4 @@
-div.remove-task-main {
+div.edit-collaborators-main {
   z-index: 1000;
   width: 300px;
   height: auto;
@@ -12,4 +12,11 @@ div.remove-task-main {
   background-color: white;
   border: 1px solid black;
   display:none;
+}
+
+div.collaborator-list {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  overflow: auto;
+  max-height: 150px;
 }

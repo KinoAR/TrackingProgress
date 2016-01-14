@@ -2,6 +2,7 @@ Template.application.onRendered(function(){
   Session.setDefault("projectName", null);
   Session.setDefault("projectId", null);
   Session.setDefault("taskComplete", false);
+  Session.setDefault("userInput", null);
 });
 Template.application.events({
   'click #application-add-project' : function(event, template) {
@@ -23,6 +24,11 @@ Template.application.events({
     Session.set("projectName", clickedElement.value);
     let project = Projects.findOne({name:Session.get("projectName")}, {fields: {_id:1}});
     Session.set("projectId", project._id);
+  },
+  'click #application-edit-collaborators': function(event, template) {
+    event.preventDefault();
+    let editCollaborators = template.find(".edit-collaborators-main");
+    editCollaborators.style.display = "block";
   },
   'click #application-add-task' : function(event, template) {
     event.preventDefault();
@@ -69,8 +75,11 @@ Template.application.helpers({
   'currentProjects' : function() {
     //Return Projects this user is attached to
     let currentUserId = Meteor.userId();
-    let projects = Projects.find({projectCreator:currentUserId});
-    return projects;
+    let currentUser = Meteor.user();
+    if(currentUser !== null && typeof (currentUser) !== 'undefined' ) {
+      let projects = Projects.find({$or:[{collaborators:{name:currentUser.username}}, {projectCreator:currentUserId}]});
+      return projects;
+    }
   },
   'currentProject': function() {
     let currentProjectName = Session.get("projectName");
@@ -78,6 +87,8 @@ Template.application.helpers({
     return project;
   },
   'progress': function() {
+    if(Session.get("projectName") == null)
+      return 0;
     if(Session.get("projectName") !== null){
     let currentProjectName = Session.get("projectName");
     let count = 0;

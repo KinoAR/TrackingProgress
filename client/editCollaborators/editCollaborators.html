@@ -1,0 +1,42 @@
+<template name="editCollaborators">
+  <div class="edit-collaborators-main">
+    {{> closeForm }}
+    <div class="row">
+      <div class="col-xs-12">
+      <h3> Edit Partners </h3>
+      </div>
+      <div class="col-xs-12">
+        <form class="application-forms">
+          <div class="form-group">
+            <label class="sr-only" for="Username"> Username </label>
+            <input type="text" class="form-control" id="edit-collaborators-username" placeholder="Username">
+          </div>
+          <div class="collaborator-list">
+            {{#with currentCollaborators }}
+            <ul class="application-progress">
+              {{#each this}}
+              <li> 
+                <button type="button" class="remove-collaborator-button application-progress btn btn-primary btn-sm btn-block" value="{{this.name}}">
+                  {{ this.name }}
+                </button>
+              </li>
+              {{/each}}
+            </ul>
+            {{/with}}
+          </div>
+          <div class="collaborator-list">
+            {{#each collaborators}}
+            <ul class="application-progress">
+              <li> 
+                <button type="button" class="add-collaborator-button application-progress btn btn-primary btn-sm btn-block" value="{{username}}">
+                  {{ username }}
+                </button>
+              </li>
+            </ul>
+            {{/each}}
+          </div>        
+        </form>
+      </div>
+    </div>
+  </div>
+</template>
