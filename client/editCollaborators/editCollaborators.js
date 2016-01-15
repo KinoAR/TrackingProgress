@@ -1,6 +1,6 @@
 Template.editCollaborators.events({
   'keyup #edit-collaborators-username': function(event){
-    text = event.target.value;
+    let text = event.target.value;
     Session.set("userInput", text)
   },
   'click .add-collaborator-button': function(event) {
@@ -19,8 +19,9 @@ Template.editCollaborators.events({
 Template.editCollaborators.helpers({
   'collaborators': function() {
     let search = Session.get("userInput");
-    regexp = new RegExp("^"+ search + ".*",'i');
+    let regexp = new RegExp("^"+ search + ".*",'i');
     let collaborators = Meteor.users.find({username: {$regex: regexp }}, {fields: {username:1}});
+    
     return collaborators;
   },
   'currentCollaborators': function() {
