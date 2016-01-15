@@ -8,6 +8,7 @@ Template.editCollaborators.events({
     let clickedElement = event.target;
 
     Projects.update({_id:Session.get("projectId")}, {$addToSet: {collaborators: {name:clickedElement.value}}});
+    Session.set("userInput", null);
   },
   'click .remove-collaborator-button': function(event) {
     event.preventDefault();
