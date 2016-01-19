@@ -1,9 +1,3 @@
-Template.application.onRendered(function(){
-  Session.setDefault("projectName", null);
-  Session.setDefault("projectId", null);
-  Session.setDefault("taskComplete", false);
-  Session.setDefault("userInput", null);
-});
 Template.application.events({
   'click #application-add-project' : function(event, template) {
     event.preventDefault();
@@ -54,10 +48,19 @@ Template.application.events({
         else
           console.log("Successfully updated:" + documents);
     });
+    let notificationText = "Task: " + clickedElement.dataset.taskname + " has been removed.";
+    let notification = {
+      projectId:Session.get("projectId"),
+      taskName: clickedElement.dataset.taskname,
+      notificationText: notificationText
+    };
+    Notifications.insert(notification);
+    showNotifications();
   },
   'change .taskCheck' : function(event, template) {
     let taskName = this.name;
     let projectId = Session.get("projectId");
+
     if(event.target.checked) {
       Session.set("taskComplete", true);
       let checked = Session.get("taskComplete");
@@ -68,6 +71,16 @@ Template.application.events({
       let checked = Session.get("taskComplete");
       Meteor.call('updateTask',projectId, taskName, checked); 
     }
+    let notificationText = "Task: " + taskName + Session.get("taskComplete");
+    notificationText = notificationText.replace(/true/, " is completed.");
+    notificationText = notificationText.replace(/false/, " is not completed.");
+    let notification = {
+      projectId:Session.get("projectId"),
+      taskName: taskName,
+      notificationText: notificationText
+    };
+    Notifications.insert(notification);
+    showNotifications();
   }
 });
 
@@ -90,17 +103,27 @@ Template.application.helpers({
     if(Session.get("projectName") == null)
       return 0;
     if(Session.get("projectName") !== null){
-    let currentProjectName = Session.get("projectName");
-    let count = 0;
-    let currentProject = Projects.findOne({name: currentProjectName});
+      let currentProjectName = Session.get("projectName");
+      let count = 0;
+      let currentProject = Projects.findOne({name: currentProjectName});
     if(currentProject !== undefined){
        currentProject.tasks.forEach(function(element){ 
-      if(element.complete){
-       count++;
-      }});
+        if(element.complete){
+          count++;
+        }
+      });
       let progress = Math.floor((100 * (count / currentProject.tasks.length)));
       return progress;
     }
+  }
+  },
+  'closeMessageBoard': function() {
+    if(Session.get("drawerOpen")) {
+      Meteor.setTimeout(function(){
+        let messageBoard = document.getElementById("message-board");
+        messageBoard.className ="row message-board-main slide-out";
+        Session.set("drawerOpen", false);
+      }, 10000);
     }
   }
 });

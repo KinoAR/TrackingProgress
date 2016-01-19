@@ -1,0 +1,82 @@
+div.message-board-main {
+  min-height: 400px;
+  max-height:  450px;
+  z-index: 1001;
+  position: absolute;
+  margin-left:-170%;
+
+}
+/* Main animations */
+.slide-in {
+  animation-duration: 2s;
+  animation-name:slidein;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slidein {
+    from {
+      margin-left: -170%;
+    } 
+
+    to {
+      margin-left: 0%;
+    }
+}
+.slide-out {
+  animation-duration:2s;
+  animation-name: slideout;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideout {
+  from {
+    margin-left: 0%;
+  }
+
+  to {
+    margin-left: -170%;
+  }
+}
+div.message-board-header {
+  background-color: rgb(12, 85, 161);
+  background: linear-gradient(to bottom, rgba(12, 85, 161, 1), rgba(9, 64, 122, 1));
+  color:white;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+span.notification-buttons {
+  float: right;
+}
+div.message-board-content {
+  background-color: white;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  overflow: auto;
+  min-height: 220px;
+  max-height: 400px;
+}
+
+ul.message-board-content {
+  list-style-type: none;
+  padding-left: 15px;
+}
+
+div.message-board-buttons {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+div.message-board-well {
+  margin-bottom: 5px;
+}
+div.message-board-footer {
+  background-color: rgb(12, 85, 161);
+  background: linear-gradient(to bottom, rgba(12, 85, 161, 1), rgba(9, 64, 122, 1));
+  color:white;
+  border-top:1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  min-height: 5px;
+}

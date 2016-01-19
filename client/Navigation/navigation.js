@@ -6,7 +6,8 @@ Template.navigation.events({
         console.log(error);
       else
         console.log("Logout success");
-    })
+    });
     Session.set("projectName",null);
+    Router.go('/');
   }
 });

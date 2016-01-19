@@ -3,10 +3,11 @@ Template.editCollaborators.events({
     let text = event.target.value;
     Session.set("userInput", text)
   },
-  'click .add-collaborator-button': function(event) {
+  'click .add-collaborator-button': function(event, template) {
     event.preventDefault();
     let clickedElement = event.target;
-
+    let usernameField = template.find("#edit-collaborators-username");
+    usernameField.value = "";
     Projects.update({_id:Session.get("projectId")}, {$addToSet: {collaborators: {name:clickedElement.value}}});
     Session.set("userInput", null);
   },
@@ -14,7 +15,8 @@ Template.editCollaborators.events({
     event.preventDefault();
     let clickedElement = event.target;
     Projects.update({_id:Session.get("projectId")}, {$pull: {collaborators:{name:clickedElement.value}}});
-  }
+  },
+  
 });
 
 Template.editCollaborators.helpers({

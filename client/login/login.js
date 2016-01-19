@@ -16,5 +16,6 @@ Template.login.events({
       else
         console.log("Successfully logged in");
     });
+    Router.go('/progressPage');
   }
-})
+});
