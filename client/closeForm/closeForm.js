@@ -7,6 +7,7 @@ Template.closeForm.events({
     clickedElement.parentNode.style.display = "none";
     Array.prototype.forEach.call(forms,(function(element){
       element.reset();
+      Session.set("userInput", null);
     }));
   }
 });

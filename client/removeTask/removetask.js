@@ -19,5 +19,13 @@ Template.removeTask.events({
     });
     removeTask.style.display = "none";
     form.reset();
+    let notificationText = "Task: " + taskName + " has been removed.";
+    let notification = {
+      projectId:Session.get("projectId"),
+      taskName: taskName,
+      notificationText: notificationText
+    };
+    Notifications.insert(notification);
+    showNotifications();
   }
 });

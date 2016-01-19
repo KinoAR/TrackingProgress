@@ -17,7 +17,7 @@
               {{#each this}}
               <li> 
                 <button type="button" class="remove-collaborator-button application-progress btn btn-primary btn-sm btn-block" value="{{this.name}}">
-                  {{ this.name }}
+                  Remove {{ this.name }}
                 </button>
               </li>
               {{/each}}
@@ -25,15 +25,15 @@
             {{/with}}
           </div>
           <div class="collaborator-list">
-            {{#each collaborators}}
             <ul class="application-progress">
+            {{#each collaborators}}
               <li> 
                 <button type="button" class="add-collaborator-button application-progress btn btn-primary btn-sm btn-block" value="{{username}}">
                   {{ username }}
                 </button>
               </li>
+              {{/each}}
             </ul>
-            {{/each}}
           </div>        
         </form>
       </div>
