@@ -7,9 +7,15 @@ Template.editCollaborators.events({
     event.preventDefault();
     let clickedElement = event.target;
     let usernameField = template.find("#edit-collaborators-username");
-    usernameField.value = "";
-    Projects.update({_id:Session.get("projectId")}, {$addToSet: {collaborators: {name:clickedElement.value}}});
+    let collaboratorInfo = Meteor.users.findOne({username: clickedElement.value}, {fields: {username:1}});
+    let collaborator = {
+      userId: collaboratorInfo._id,
+      username:clickedElement.value
+    };
+    
+    Projects.update({_id:Session.get("projectId")}, {$addToSet: {collaborators:collaborator}});
     Session.set("userInput", null);
+    usernameField.value = "";
   },
   'click .remove-collaborator-button': function(event) {
     event.preventDefault();

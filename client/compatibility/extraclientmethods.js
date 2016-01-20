@@ -7,9 +7,8 @@ Meteor.startup(function(){
 });
 
 /* Client Side JS methods */
-var showNotifications = function () { 
+function showNotifications () { 
   let messageBoard = document.getElementById("message-board");
   messageBoard.className = "row message-board-main slide-in";
   Session.set("drawerOpen", true);
-};
-
+}

@@ -9,7 +9,7 @@ Template.addProject.events({
     let taskDescription = template.find("#add-project-task-description").value;
     let userId = Meteor.userId();
     let addProject = template.find(".add-project-main");
-    //Create project and push it to the user projects array
+    //Create project and push it to the user projects
     let project = {
       projectCreator: userId,
       name: projectName,

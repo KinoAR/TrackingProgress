@@ -90,7 +90,7 @@ Template.application.helpers({
     let currentUserId = Meteor.userId();
     let currentUser = Meteor.user();
     if(currentUser !== null && typeof (currentUser) !== 'undefined' ) {
-      let projects = Projects.find({$or:[{collaborators:{name:currentUser.username}}, {projectCreator:currentUserId}]});
+      let projects = Projects.find({$or:[{"collaborators.username":currentUser.username}, {projectCreator:currentUserId}]});
       return projects;
     }
   },
