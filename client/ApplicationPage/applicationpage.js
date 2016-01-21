@@ -48,14 +48,7 @@ Template.application.events({
         else
           console.log("Successfully updated:" + documents);
     });
-    let notificationText = "Task: " + clickedElement.dataset.taskname + " has been removed.";
-    let notification = {
-      projectId:Session.get("projectId"),
-      taskName: clickedElement.dataset.taskname,
-      notificationText: notificationText
-    };
-    Notifications.insert(notification);
-    showNotifications();
+    notificationTaskRemove(clickedElement.dataset.taskname);
   },
   'change .taskCheck' : function(event, template) {
     let taskName = this.name;
@@ -71,16 +64,7 @@ Template.application.events({
       let checked = Session.get("taskComplete");
       Meteor.call('updateTask',projectId, taskName, checked); 
     }
-    let notificationText = "Task: " + taskName + Session.get("taskComplete");
-    notificationText = notificationText.replace(/true/, " is completed.");
-    notificationText = notificationText.replace(/false/, " is not completed.");
-    let notification = {
-      projectId:Session.get("projectId"),
-      taskName: taskName,
-      notificationText: notificationText
-    };
-    Notifications.insert(notification);
-    showNotifications();
+    notificationTaskChange(taskName);
   }
 });
 
@@ -98,6 +82,20 @@ Template.application.helpers({
     let currentProjectName = Session.get("projectName");
     let project = Projects.findOne({name: currentProjectName});
     return project;
+  },
+  'isProjectCreator':function() {
+    let projectCreator = Meteor.userId();
+    let project = Projects.findOne({_id:Session.get("projectId")});
+    if(project !== undefined || null) {
+        if(projectCreator === project.projectCreator) {
+          updateTaskButtons("33.3333%");
+          return true;
+      }
+      else {
+        updateTaskButtons("50%");
+        return false;
+      }
+    } 
   },
   'progress': function() {
     if(Session.get("projectName") == null)
@@ -123,7 +121,7 @@ Template.application.helpers({
         let messageBoard = document.getElementById("message-board");
         messageBoard.className ="row message-board-main slide-out";
         Session.set("drawerOpen", false);
-      }, 10000);
+      }, 8000);
     }
   }
 });

@@ -9,7 +9,12 @@ Template.messageBoard.events({
 Template.messageBoard.helpers({
   'projectNotifications': function() {
     let projectId = Session.get("projectId");
-    let notifications = Notifications.find({projectId:projectId});
+    let notifications = Notifications.find({projectId:projectId}, {sort: {timeStamp: -1}, limit:5});
     return notifications;
+  },
+  'formattedTimeStamp': function() {
+    let now = this.timeStamp;
+    formattedTimeStamp = moment(now).format("MM/DD/YYYY hh:mm");
+    return formattedTimeStamp;
   }
 });
