@@ -19,7 +19,6 @@ div.message-board-main {
 
     to {
       margin-left: 0%;
-      display:block;
     }
 }
 .slide-out {
@@ -35,7 +34,6 @@ div.message-board-main {
 
   to {
     margin-left: -250%;
-    display:none;
   }
 }
 div.message-board-header {

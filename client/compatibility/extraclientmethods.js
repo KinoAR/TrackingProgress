@@ -4,6 +4,7 @@ Meteor.startup(function(){
   Session.setDefault("taskComplete", false);
   Session.setDefault("userInput", null);
   Session.setDefault("drawerOpen", false);
+  Session.setDefault("notificationText", null);
 });
 /* Notifications Settings */
 Bert.defaults.hideDelay = 4500;
@@ -26,17 +27,10 @@ function notificationTaskChange(taskName) {
     projectId:Session.get("projectId"),
     taskName: taskName,
     timeStamp: Date.now(),
+    timeStampText: timeStampText,
     notificationText: notificationText
   };
-
   Notifications.insert(notification);
-  Bert.alert({
-    title: "Task Updated",
-    message: notificationText + timeStampText, 
-    type:"task-update",
-    style:"growl-top-right",
-    icon: "fa-pencil-square-o"
-  });
 }
 
 function notificationTaskRemove(taskName) {
@@ -48,15 +42,9 @@ function notificationTaskRemove(taskName) {
     projectId:Session.get("projectId"),
     taskName: taskName,
     timeStamp: Date.now(),
+    timeStampText:timeStampText,
     notificationText: notificationText
   };
-  Bert.alert({
-    title: "Task Removed",
-    message: notificationText + timeStampText, 
-    type:"danger",
-    style:"growl-top-right",
-    icon: "fa-times"
-  });
   Notifications.insert(notification);
 }
 
@@ -69,15 +57,39 @@ function notificationsTaskAdd(taskName) {
     projectId:Session.get("projectId"),
     taskName: taskName,
     timeStamp: Date.now(),
+    timeStampText:timeStampText,
     notificationText: notificationText
   };
-  Bert.alert({
-    title: "Task Added",
-    message: notificationText + timeStampText, 
-    type:"info",
-    style:"growl-top-right",
-    icon: "fa-plus"
-  });
+  Notifications.insert(notification);
+}
+
+function notificationAddPartner(partner){
+  let user = Meteor.user().username;
+  let timeStamp = moment().format("MM/DD/YYYY hh:mm");
+  let timeStampText =  "\n At: " + timeStamp;
+  let notificationText = user + " has added " + partner + " as a partner";
+  let notification = {
+    projectId:Session.get("projectId"),
+    parterName:partner,
+    timeStamp: Date.now(),
+    timeStampText:timeStampText,
+    notificationText: notificationText
+  };
+  Notifications.insert(notification);
+}
+
+function notificationRemovePartner(partner){
+  let user = Meteor.user().username;
+  let timeStamp = moment().format("MM/DD/YYYY hh:mm");
+  let timeStampText =  "\n At: " + timeStamp;
+  let notificationText = user + " has removed " + partner + " as a partner";
+  let notification = {
+    projectId:Session.get("projectId"),
+    partnerName: partner,
+    timeStamp: Date.now(),
+    timeStampText:timeStampText,
+    notificationText: notificationText
+  };
   Notifications.insert(notification);
 }
 function updateTaskButtons(percentage) {

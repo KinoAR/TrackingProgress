@@ -1,5 +1,7 @@
 <template name="application">
   <div class="application-main container-fluid">
+    <!-- Notifications -->
+    {{ notifications }}
     <!-- Prompts -->
     {{> addProject }}
     {{> removeProject }}
@@ -73,12 +75,16 @@
           {{else}}
 
           {{/if}}
-          <button type="button" id="application-add-task" class="app-task-block-button btn btn-primary">
-            Add Task
-          </button>
-          <button type="button" id="application-remove-task" class="app-task-block-button btn btn-primary">
-            Remove Task
-          </button>
+          {{#if currentProject}}
+            <button type="button" id="application-add-task" class="app-task-block-button btn btn-primary">
+              Add Task
+            </button>
+            <button type="button" id="application-remove-task" class="app-task-block-button btn btn-primary">
+              Remove Task
+            </button>
+          {{else}}
+
+          {{/if}}
         </div>
         <div class="application-tasks-list">
           {{#with currentProject}} 
