@@ -9,5 +9,9 @@ Template.navigation.events({
     });
     Session.set("projectName",null);
     Router.go('/');
+  },
+  'click .check-notifications': function(event) {
+    event.preventDefault();
+    showNotifications();
   }
 });

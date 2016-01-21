@@ -7,13 +7,12 @@
       <ul class="message-board-content">
       {{#each projectNotifications }}
         <li>
-          <div class="col-xs-10">
+          <div class="col-xs-8">
             <p> {{ notificationText }} </p>
           </div>
-          <div class="message-board-buttons col-xs-2">
+          <div class="message-board-buttons col-xs-4">
             <div class="message-board-well well well-sm">
-              <i class="fa fa-pencil-square-o fa-1x"></i>
-              <i class="fa fa-minus-square fa-1x"></i>
+            {{ formattedTimeStamp }}
             </div>
           </div>
         </li>

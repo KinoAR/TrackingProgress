@@ -4,3 +4,8 @@ div.user-status {
   width:200px;
   display: inline-block;
 }
+
+button.check-notifications {
+  display: inline;
+  float:left;
+}

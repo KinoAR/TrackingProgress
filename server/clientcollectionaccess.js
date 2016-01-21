@@ -1,3 +1,4 @@
+/* Client Collection Access Rights */
 Meteor.users.allow({
   update: function () {
     return true;
@@ -8,14 +9,18 @@ Meteor.users.allow({
 });
 
 Projects.allow({
-  insert: function() {
-    return true;
+  insert: function(userId, doc) {
+    return (userId && doc.projectCreator === userId);
   },
-  update: function() {
-    return true;
+  update: function(userId, doc) {
+    if(userId === doc.projectCreator || doc.collaborators.some(function(element) {
+        return element.userId === userId;
+      })) {
+      return true;
+    }
   },
-  remove: function() {
-    return true;
+  remove: function(userId, doc) {
+    return (userId && doc.projectCreator === userId);
   }
 });
 
@@ -24,9 +29,9 @@ Notifications.allow({
     return true;
   },
   update: function() {
-    return true;
+    return false;
   },
   remove: function() {
-    return true;
+    return false;
   }
 });

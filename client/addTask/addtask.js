@@ -17,13 +17,6 @@ Template.addTask.events({
     Projects.update({_id:project._id}, {$push: {tasks: task}});
     addTask.style.display = "none";
     form.reset();
-    let notificationText = "Task: " + taskName + " has been added.";
-    let notification = {
-      projectId:Session.get("projectId"),
-      taskName: taskName,
-      notificationText: notificationText
-    };
-    Notifications.insert(notification);
-    showNotifications();
+    notificationsTaskAdd(taskName);
   }
 });
