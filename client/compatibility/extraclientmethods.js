@@ -62,6 +62,36 @@ function notificationsTaskAdd(taskName) {
   };
   Notifications.insert(notification);
 }
+
+function notificationAddPartner(partner){
+  let user = Meteor.user().username;
+  let timeStamp = moment().format("MM/DD/YYYY hh:mm");
+  let timeStampText =  "\n At: " + timeStamp;
+  let notificationText = user + " has added " + partner + " as a partner";
+  let notification = {
+    projectId:Session.get("projectId"),
+    parterName:partner,
+    timeStamp: Date.now(),
+    timeStampText:timeStampText,
+    notificationText: notificationText
+  };
+  Notifications.insert(notification);
+}
+
+function notificationRemovePartner(partner){
+  let user = Meteor.user().username;
+  let timeStamp = moment().format("MM/DD/YYYY hh:mm");
+  let timeStampText =  "\n At: " + timeStamp;
+  let notificationText = user + " has removed " + partner + " as a partner";
+  let notification = {
+    projectId:Session.get("projectId"),
+    partnerName: partner,
+    timeStamp: Date.now(),
+    timeStampText:timeStampText,
+    notificationText: notificationText
+  };
+  Notifications.insert(notification);
+}
 function updateTaskButtons(percentage) {
   let taskButtons = document.getElementsByClassName("app-task-block-button");
   Array.prototype.forEach.call(taskButtons, function(element) {

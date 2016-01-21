@@ -12,7 +12,7 @@ Template.editCollaborators.events({
       userId: collaboratorInfo._id,
       username:clickedElement.value
     };
-    
+    notificationAddPartner(clickedElement.value);
     Projects.update({_id:Session.get("projectId")}, {$addToSet: {collaborators:collaborator}});
     Session.set("userInput", null);
     usernameField.value = "";
@@ -20,6 +20,8 @@ Template.editCollaborators.events({
   'click .remove-collaborator-button': function(event) {
     event.preventDefault();
     let clickedElement = event.target;
+
+    notificationRemovePartner(clickedElement.value);
     Projects.update({_id:Session.get("projectId")}, {$pull: {collaborators:{username:clickedElement.value}}});
   },
   

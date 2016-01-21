@@ -22,6 +22,7 @@ Template.removeProject.events({
         return element.userId === userId;
       })) {
         Projects.update({_id:Session.get("projectId")}, {$pull: {collaborators:{userId:userId}}});
+        notificationRemovePartner(Meteor.user.username);
       }
     }
     removeProject.style.display = "none";
