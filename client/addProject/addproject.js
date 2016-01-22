@@ -25,6 +25,8 @@ Template.addProject.events({
     };
     Projects.insert(project);
     Session.set('projectName', project.name);
+    let newProject = Projects.findOne({name:Session.get("projectName")});
+    Session.set("projectId", newProject._id);
     addProject.style.display = "none";
     form.reset();
   }
