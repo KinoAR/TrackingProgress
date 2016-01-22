@@ -83,6 +83,12 @@ Template.application.helpers({
     let project = Projects.findOne({name: currentProjectName});
     return project;
   },
+  'isProject' : function() {
+    if(Session.get("projectName") !== null && Session.get("projectId") !== null)
+      return true;
+    else
+      return false;
+  },
   'isProjectCreator':function() {
     let projectCreator = Meteor.userId();
     let project = Projects.findOne({_id:Session.get("projectId")});
