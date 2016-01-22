@@ -1,11 +1,17 @@
 <template name="userStatus">
   <div class="user-status row">
-    <div class="col-xs-4"><p> {{ currentUser.username}} </p></div>
-    <div class="col-xs-8">
-    <div class="application-btn-group btn-group btn-group-xs" role="group" aria-label="...">
-      <button type="button" class="check-notifications btn btn-primary btn-xs btn-block" value="notifications">Notifications</button>
-      <button type="button" class="logout btn btn-primary btn-xs btn-block" value="logout">Log Out</button>
+    <div class="col-xs-4">
+      <p> {{ currentUser.username}} </p>
     </div>
+    <div class="col-xs-8">
+      <div class="application-btn-group btn-group btn-group-xs" role="group" aria-label="...">
+        <button type="button" class="application-block-btn check-notifications btn btn-primary btn-xs btn-block" value="notifications">
+          Notifications
+        </button>
+        <button type="button" class="application-block-btn logout btn btn-primary btn-xs btn-block" value="logout">
+          Log Out
+        </button>
+      </div>
     </div>
   </div>
 </template>

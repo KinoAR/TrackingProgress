@@ -24,7 +24,11 @@ a, a:hover, a:focus, a:visited {
 }
 
 button.logout {
-  height: 17px;
+  margin-top: 0px;
+}
+
+.btn-block + .btn-block {
+  margin-top: 0px;
 }
 /* Override bootstrap */
 .navbar-default .navbar-brand {

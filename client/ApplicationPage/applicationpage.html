@@ -2,6 +2,8 @@
   <div class="application-main container-fluid">
     <!-- Notifications -->
     {{ notifications }}
+    {{> messageBoard }}
+    {{ closeMessageBoard }}
     <!-- Prompts -->
     {{> addProject }}
     {{> removeProject }}
@@ -19,8 +21,6 @@
           {{/with }}
         </ul>
       </div>
-      {{> messageBoard }}
-      {{ closeMessageBoard }}
       <div class="application-project-list col-xs-8 hidden-md hidden-lg hidden-sm text-center">
         <!-- Add / Remove Project Buttons -->
         <h2> Projects </h2>
@@ -75,7 +75,7 @@
           {{else}}
 
           {{/if}}
-          {{#if currentProject}}
+          {{#if isProject}}
             <button type="button" id="application-add-task" class="app-task-block-button btn btn-primary">
               Add Task
             </button>

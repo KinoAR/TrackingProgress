@@ -1,9 +1,10 @@
 div.message-board-main {
+  top:33%;
   min-height: 400px;
   max-height:  450px;
   z-index: 1001;
   position: absolute;
-  margin-left:-250%;
+  margin-left:-900px;
 }
 /* Main animations */
 .slide-in {
@@ -14,11 +15,11 @@ div.message-board-main {
 
 @keyframes slidein {
     from {
-      margin-left: -250%;
+      margin-left: -900px;
     } 
 
     to {
-      margin-left: 0%;
+      margin-left: -15px;
     }
 }
 .slide-out {
@@ -29,11 +30,11 @@ div.message-board-main {
 
 @keyframes slideout {
   from {
-    margin-left: 0%;
+    margin-left: -15px;
   }
 
   to {
-    margin-left: -250%;
+    margin-left: -900px;
   }
 }
 div.message-board-header {
